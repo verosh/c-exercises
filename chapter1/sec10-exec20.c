@@ -10,7 +10,7 @@ int main(void){
 
     while((c=getchar()) != EOF){
         if (c == '\t'){
-            num = TABLEN - ((current - 1) % TABLEN);
+            num = TABLEN - ((current - 1) % TABLEN); /* this calculates how many spaces until the next tab stop */
 
             while(num > 0){
                 putchar(' ');
