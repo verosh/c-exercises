@@ -15,7 +15,7 @@ int main(void) {
     state = OUT;
     j = 0;
     while ((len = getLineLength()) > 0){
-        for( i = 0; i < len-1; i++){
+        for( i = 0; i < len-1; i++){ /* len-1 to counteract out of bounds issue */
             if( line[i] == '/' && line[i+1] == '*' ){
                 state = IN;
                         } else if ( line[i] == '*' && line[i+1] == '/' ) {
@@ -28,8 +28,10 @@ int main(void) {
             }
         }
 
+        copied[j] = line[i]; /* last character added to counter-counteract out of bounds */
 
-        printf("\n\n%s",copied);
+
+        printf("\n\n%s\n\n",copied);
     }
     return 0;
 }
